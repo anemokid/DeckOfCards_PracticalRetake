@@ -1,18 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/layout_margin"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Horizontal linear layout for tv( cards remaining )  +  btn( shuffle new deck )  -->
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@id/tv_cards_remaining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cards_remaining"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@id/btn_shuffle_new_deck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="@string/txt_btn_shuffle_new_deck" />
+
+    </RelativeLayout>
+
+    <!-- Horizontal linear layout for tv( cards remaining )  +  btn( shuffle new deck ) -->
+
+    <!-- dividing line: -->
+    <ImageView
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_margin="@dimen/layout_margin"
+        android:background="@color/colorPrimary" />
+
+    <!-- horizontal linear layout for et ( how many cards ) +  btn ( draw deck ) -->
+    <RelativeLayout
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@id/et_draw_cards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:hint="@string/txt_draw_cards_user"
+            android:inputType="number" />
+
+        <Button
+            android:id="@id/btn_display_drawn_cards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/txt_btn_display_cards" />
+
+    </RelativeLayout>
+
+    <!-- horizontal linear layout for et ( how many cards ) +  btn ( draw deck )-->
+
+    <!-- RV: item view -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@id/rv_user_cards"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
